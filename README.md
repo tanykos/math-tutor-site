@@ -1,36 +1,80 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Math Tutor Site
+
+Conversion-focused marketing website for a private math tutor.
+
+## Deployment
+
+- Production URL: [deploy](https://math-tutor-site-gray.vercel.app/)
+
+## Tech Stack
+
+- Next.js 15 (App Router)
+- React 19
+- TypeScript
+- CSS Modules
+- ESLint
+
+## Current Status
+
+- ✅ Baseline platform is live on Vercel
+- 🔄 Foundation phase: deployment, structure, and localization setup
 
 ## Getting Started
 
-First, run the development server:
+Install dependencies:
+
+```bash
+npm install
+```
+
+Run in development:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Production build check:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm run start
+```
 
-## Learn More
+## Environment Variables
 
-To learn more about Next.js, take a look at the following resources:
+- `.env.local` — local secrets, never committed
+- `.env.example` — public template of required keys, no real secret values
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Architecture Decisions
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Why Next.js 15 (not 16)
 
-## Deploy on Vercel
+The project currently runs on the latest Next.js 15 patch.  
+This keeps delivery predictable while preserving modern App Router capabilities.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Why App Router
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The website is SEO-critical and expected to evolve with server-side integrations.  
+App Router supports this with server-first rendering, scalable route structure, and clean boundaries between server and client logic.
+
+### Why CSS Modules (not Tailwind or CSS-in-JS)
+
+CSS Modules were selected for:
+
+- predictable, component-level style scoping
+- no runtime styling cost
+- smooth compatibility with server components
+
+This keeps styling maintainable and performant while preserving explicit visual control.
+
+### Why real product context
+
+Building for a real tutoring practice keeps decisions focused on practical outcomes: clarity, trust, lead quality, and conversion.
+
+## Short Roadmap
+
+- [X] Finalize deployment workflow for production and preview releases
+- [ ] Establish scalable project structure for localization and server/client boundaries
+- [ ] Launch RU/EN localization foundation
